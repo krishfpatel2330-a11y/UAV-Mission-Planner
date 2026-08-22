@@ -1,0 +1,29 @@
+# Ridgeline ISR transit.
+# Local frame origin; all x/y below are metres east/north of this point.
+origin 29.6436 -82.3549
+ 
+# 20 km x 20 km synthetic DEM at 100 m posting, fixed seed for reproducibility.
+terrain synthetic 201 201 100 7
+ 
+aircraft cruise_speed_mps     22
+aircraft cruise_power_w      350
+aircraft climb_power_w       900
+aircraft descent_power_w     150
+aircraft max_climb_rate_mps    3
+aircraft max_sink_rate_mps     4
+aircraft energy_wh           600
+aircraft reserve_frac        0.20
+aircraft min_agl_m            60
+aircraft max_alt_msl_m      1200
+ 
+start agl 1500 1500 120
+goal  agl 18000 17500 120
+ 
+# Surface-to-air threat ring, modelled to its engagement ceiling.
+nfz SAM_RING_ALPHA floor 0 ceiling 1200 poly 7000 6000 11000 6000 11000 10500 7000 10500
+ 
+# Civil airfield control zone, surface to 900 m.
+nfz CTR_BRAVO floor 0 ceiling 900 poly 12500 11000 16000 12500 15000 15500 12000 14000
+ 
+# Restricted corridor along the ridge.
+nfz R_CHARLIE floor 0 ceiling 1200 poly 3000 9000 6000 12500 5000 13500 2000 10000

@@ -36,4 +36,3 @@ jobs:
         run: cmake --build build-asan -j
       - name: Unit tests under sanitizers
         run: ctest --test-dir build-asan --output-on-failure
- 
